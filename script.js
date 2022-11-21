@@ -93,6 +93,13 @@ function addValues() {
   });
 }
 
+function getResult() {
+  equal.addEventListener('click', e => {
+    result.value = eval(result.value);
+  });
+  return (result.value = eval(result.value));
+}
+
 function deleteNumbers() {
   resets.forEach(reset => {
     reset.addEventListener('click', e => {
@@ -103,11 +110,4 @@ function deleteNumbers() {
       }
     });
   });
-}
-
-function getResult() {
-  equal.addEventListener('click', e => {
-    result.value = eval(result.value);
-  });
-  return (result.value = eval(result.value));
 }

@@ -10,6 +10,8 @@
   font-weight: 700;
 }
 
+/* First Theme Configuration */
+
 .first-theme {
   --background-body: #3a4663;
   --background-container: #242d44;
@@ -29,6 +31,8 @@
   transition: 0.4s;
 }
 
+/* Second Theme Configuration */
+
 .second-theme {
   --background-container: #d2cdcd;
   --background-body: #e6e6e6;
@@ -47,6 +51,8 @@
   --shadow-result: inset 0px -4px 0px #873901;
   transition: 0.4s;
 }
+
+/* Third Theme Configuration */
 
 .third-theme {
   --background-container: #1e0936;
@@ -113,6 +119,8 @@ body {
   padding: 7px;
 }
 
+/* Range Style */
+
 input[type='range'] {
   appearance: none;
   width: 71px;
@@ -137,6 +145,8 @@ input[type='range']::-webkit-slider-thumb:hover {
   opacity: 75%;
 }
 
+/* Input Result */
+
 .result-getresult input {
   background-color: var(--input-result-background);
   height: 80px;
@@ -160,6 +170,8 @@ input::-webkit-inner-spin-button {
   appearance: none;
   margin: 0;
 }
+
+/* Buttons */
 
 .number-buttons {
   display: grid;
@@ -217,6 +229,8 @@ input::-webkit-inner-spin-button {
 .actionbutton:hover {
   opacity: 75%;
 }
+
+/* Media Queries */
 
 @media (max-width: 550px) {
   body {
