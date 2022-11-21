@@ -53,7 +53,11 @@ function inputKey() {
     }
 
     if (e.key === 'Enter') {
-      getResult();
+      if (result.value === '') {
+        return;
+      } else {
+        getResult();
+      }
     }
   });
 }
@@ -95,7 +99,11 @@ function addValues() {
 
 function getResult() {
   equal.addEventListener('click', e => {
-    result.value = eval(result.value);
+    if (result.value === '') {
+      return;
+    } else {
+      result.value = eval(result.value);
+    }
   });
   return (result.value = eval(result.value));
 }
