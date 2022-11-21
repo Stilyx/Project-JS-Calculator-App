@@ -75,7 +75,7 @@ function getOperation() {
           result.value += e.target.textContent;
           break;
         case 'x':
-          result.value += '*';
+          result.value += e.target.value;
           break;
         case '/':
           result.value += e.target.textContent;
