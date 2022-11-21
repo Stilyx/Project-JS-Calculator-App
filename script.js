@@ -12,7 +12,7 @@ getResult();
 getOperation();
 changeTheme();
 
-result.value = '';
+result.value = null;
 
 function changeTheme() {
   theme.addEventListener('change', e => {
@@ -39,15 +39,10 @@ function inputKey() {
   result.addEventListener('keypress', e => {
     const regex = /[0-9+./*-]/;
     const regexTest = regex.test(e.key);
-    console.log(e.key);
+
     if (!regexTest) {
       e.preventDefault();
     }
-
-    if (result.value.includes('.') && e.key === '.') {
-      e.preventDefault();
-    }
-
     if (e.key === 'x') {
       result.value += '*';
     }
@@ -66,20 +61,44 @@ function getOperation() {
   action.forEach(actions => {
     actions.addEventListener('click', e => {
       const clickedOperation = e.target.textContent;
+      const isNumber = result.value.slice(-1) >= 0;
 
       switch (clickedOperation) {
         case '+':
-          result.value += e.target.textContent;
+          if (isNumber) {
+            result.value += e.target.textContent;
+          } else {
+            return;
+          }
+
           break;
         case '-':
-          result.value += e.target.textContent;
+          if (isNumber) {
+            result.value += e.target.textContent;
+          } else {
+            return;
+          }
           break;
         case 'x':
-          result.value += e.target.value;
+          if (isNumber) {
+            result.value += '*';
+          } else {
+            return;
+          }
           break;
         case '/':
-          result.value += e.target.textContent;
+          if (isNumber) {
+            result.value += e.target.textContent;
+          } else {
+            return;
+          }
           break;
+        case '.':
+          if (isNumber) {
+            result.value += e.target.textContent;
+          } else {
+            return;
+          }
       }
     });
   });
@@ -88,11 +107,7 @@ function getOperation() {
 function addValues() {
   numbers.forEach(number => {
     number.addEventListener('click', e => {
-      if (result.value.includes('.') && e.target.textContent === '.') {
-        e.preventDefault();
-      } else if (e.target.value >= 0) {
-        result.value += e.target.textContent;
-      }
+      result.value += e.target.textContent;
     });
   });
 }
