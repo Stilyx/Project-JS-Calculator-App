@@ -12,6 +12,8 @@ getResult();
 getOperation();
 changeTheme();
 
+result.value = '';
+
 function changeTheme() {
   theme.addEventListener('change', e => {
     const themeValue = Number(theme.value);
