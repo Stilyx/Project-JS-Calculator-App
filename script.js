@@ -37,14 +37,12 @@ function changeTheme() {
 
 function inputKey() {
   result.addEventListener('keypress', e => {
-    const regex = /[0-9+./*-]/;
+    const regex = /[0-9]/;
     const regexTest = regex.test(e.key);
+    const isNumber = result.value.slice(-1) >= 0;
 
     if (!regexTest) {
       e.preventDefault();
-    }
-    if (e.key === 'x') {
-      result.value += '*';
     }
 
     if (e.key === 'Enter') {
@@ -53,6 +51,44 @@ function inputKey() {
       } else {
         getResult();
       }
+    }
+
+    switch (e.key) {
+      case '+':
+        if (isNumber) {
+          result.value += '+';
+        } else {
+          return;
+        }
+
+        break;
+      case '-':
+        if (isNumber) {
+          result.value += '-';
+        } else {
+          return;
+        }
+        break;
+      case 'x':
+        if (isNumber) {
+          result.value += '*';
+        } else {
+          return;
+        }
+        break;
+      case '/':
+        if (isNumber) {
+          result.value += '/';
+        } else {
+          return;
+        }
+        break;
+      case '.':
+        if (isNumber) {
+          result.value += '.';
+        } else {
+          return;
+        }
     }
   });
 }
